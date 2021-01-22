@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  mode: "development",
+  mode: "production",
 
   entry: {
     entry: resolve("src/index.ts"),
@@ -19,6 +19,7 @@ module.exports = {
       // 兼容IE10取消webpack中const——可选
       const: false,
     },
+    publicPath: "/Ts_Snake/",
   },
 
   resolve: {
