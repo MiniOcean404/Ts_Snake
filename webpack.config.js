@@ -7,7 +7,7 @@ module.exports = {
   mode: "development",
 
   entry: {
-    entry: resolve("src/js/index.ts"),
+    entry: resolve("src/index.ts"),
   },
   //出口文件的配置项
   output: {
