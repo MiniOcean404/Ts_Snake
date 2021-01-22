@@ -16,8 +16,11 @@ class GameContol {
   }
 
   init() {
+    // 监听按钮
     document.addEventListener('keydown', this.keyDownHandle.bind(this))
+    // 食物随机位置
     this.food.changePositon()
+    // 让蛇动起来
     this.run()
   }
 
@@ -57,6 +60,7 @@ class GameContol {
       this.isLive = false
     }
 
+    // 重复运行
     this.isLive && setTimeout(this.run.bind(this), 300 - (this.scorePanel.level - 1) * 30);
   }
 

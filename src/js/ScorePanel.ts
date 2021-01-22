@@ -19,6 +19,7 @@ class ScorePanel {
     
     this.scoreEl.innerHTML = this.score + ''
 
+    // 如果当前的得分取余==0就提高等级
     if (this.score % this.upScore === 0) this.upLevel()
   }
 

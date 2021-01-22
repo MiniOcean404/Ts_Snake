@@ -18,19 +18,24 @@ class Snake {
 
   // 设置蛇的坐标
   set X(value: number) {
+    // 可以解决bug
     if (this.X === value) {
       return;
     }
-    this.checkHead()
-    this.collision(value)
+    // bug--存在转向时候第二个元素和第一个元素的位置相同
     if (this.bodies[1] && (this.bodies[1] as HTMLElement).offsetLeft === value) {
+      console.log((this.bodies[1] as HTMLElement).offsetLeft);
+
       if (value > this.X) {
         value = this.X - 10
       } else {
         value = this.X + 10
       }
     }
-
+    
+    this.checkHead()
+    this.collision(value)
+    // // 遍历完成后赋值头新的位置防止重复
     this.moveBody()
     this.head.style.left = value + 'px'
   }
@@ -39,8 +44,6 @@ class Snake {
     if (this.Y === value) {
       return;
     }
-    this.checkHead()
-    this.collision(value)
     if (this.bodies[1] && (this.bodies[1] as HTMLElement).offsetTop === value) {
       if (value > this.Y) {
         value = this.Y - 10
@@ -48,6 +51,8 @@ class Snake {
         value = this.Y + 10
       }
     }
+    this.checkHead()
+    this.collision(value)
     this.moveBody()
     this.head.style.top = value + 'px'
   }
